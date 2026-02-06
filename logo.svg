@@ -1,0 +1,50 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#55ff55"/>
+      <stop offset="100%" stop-color="#22cc44"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+
+  <!-- Subtle border -->
+  <rect x="3" y="3" width="1194" height="624" fill="none" stroke="#1a1a1a" stroke-width="1.5" rx="8"/>
+
+  <!-- === Lock icon (left side) === -->
+  <g transform="translate(280, 315)">
+    <!-- Shackle -->
+    <path d="M -48 0 L -48 -50 C -48 -100 48 -100 48 -50 L 48 0"
+          fill="none" stroke="url(#g1)" stroke-width="14" stroke-linecap="round"/>
+    <!-- Body -->
+    <rect x="-62" y="0" width="124" height="100" rx="8" fill="none" stroke="url(#g1)" stroke-width="14"/>
+    <!-- Keyhole lines -->
+    <rect x="-10" y="36" width="20" height="5" rx="2" fill="url(#g1)" opacity="0.9"/>
+    <rect x="-10" y="47" width="20" height="5" rx="2" fill="url(#g1)" opacity="0.7"/>
+    <rect x="-10" y="58" width="20" height="5" rx="2" fill="url(#g1)" opacity="0.5"/>
+  </g>
+
+  <!-- === Text (right side) === -->
+  <!-- StatelessPass -->
+  <text x="430" y="305" font-family="'SF Mono', 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'Consolas', 'Courier New', monospace"
+        font-size="64" font-weight="700" fill="#ffffff" letter-spacing="-0.02em">
+    Stateless<tspan fill="url(#g1)">Pass</tspan>
+  </text>
+
+  <!-- Subtitle -->
+  <text x="432" y="350" font-family="'SF Mono', 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'Consolas', 'Courier New', monospace"
+        font-size="20" fill="#666666" letter-spacing="0.05em">
+    deterministic password generation
+  </text>
+
+  <!-- Decorative dots -->
+  <g opacity="0.1" fill="#55ff55">
+    <circle cx="60" cy="580" r="3"/>
+    <circle cx="80" cy="580" r="3"/>
+    <circle cx="100" cy="580" r="3"/>
+    <circle cx="1100" cy="580" r="3"/>
+    <circle cx="1120" cy="580" r="3"/>
+    <circle cx="1140" cy="580" r="3"/>
+  </g>
+</svg>

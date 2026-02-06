@@ -1,0 +1,36 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#55ff55"/>
+      <stop offset="100%" stop-color="#22cc44"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="64" fill="#0a0a0a"/>
+
+  <!-- Subtle border -->
+  <rect x="4" y="4" width="504" height="504" rx="60" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+
+  <!-- Lock shackle (U-shape arc) -->
+  <path d="M 196 220 L 196 170 C 196 120 316 120 316 170 L 316 220"
+        fill="none" stroke="url(#g1)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Lock body -->
+  <rect x="170" y="220" width="172" height="140" rx="12" fill="none" stroke="url(#g1)" stroke-width="18"/>
+
+  <!-- Keyhole: terminal cursor/underscore style -->
+  <rect x="242" y="274" width="28" height="6" rx="2" fill="url(#g1)" opacity="0.9"/>
+  <rect x="242" y="288" width="28" height="6" rx="2" fill="url(#g1)" opacity="0.7"/>
+  <rect x="242" y="302" width="28" height="6" rx="2" fill="url(#g1)" opacity="0.5"/>
+
+  <!-- Decorative: small dot grid suggesting "stateless" / ephemeral -->
+  <g opacity="0.12" fill="#55ff55">
+    <circle cx="100" cy="420" r="3"/>
+    <circle cx="120" cy="420" r="3"/>
+    <circle cx="140" cy="420" r="3"/>
+    <circle cx="372" cy="420" r="3"/>
+    <circle cx="392" cy="420" r="3"/>
+    <circle cx="412" cy="420" r="3"/>
+  </g>
+</svg>
