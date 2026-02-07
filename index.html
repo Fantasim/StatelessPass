@@ -118,7 +118,7 @@
        ============================================ */
     .container {
       width: 100%;
-      max-width: 540px;
+      max-width: 620px;
       margin: 0 auto;
       padding: 0 var(--space-4);
     }
@@ -427,6 +427,216 @@
     }
 
     /* ============================================
+       Tab System
+       ============================================ */
+    .tabs-container {
+      margin-top: var(--space-4);
+    }
+
+    .tab-bar {
+      display: flex;
+      border-bottom: 1px solid var(--color-border);
+      gap: 0;
+    }
+
+    .tab-btn {
+      flex: 1;
+      font-family: var(--font-mono);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      background: transparent;
+      border: 1px solid var(--color-border);
+      border-bottom: none;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      padding: var(--space-2) var(--space-3);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      text-align: center;
+      white-space: nowrap;
+      margin-right: -1px;
+    }
+
+    .tab-btn:last-child {
+      margin-right: 0;
+    }
+
+    .tab-btn:hover {
+      color: var(--color-text);
+      background: var(--color-surface);
+    }
+
+    .tab-btn:focus-visible {
+      outline: 2px solid var(--color-text-bright);
+      outline-offset: -2px;
+    }
+
+    .tab-btn.active {
+      color: var(--color-text-bright);
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-surface);
+      position: relative;
+      z-index: 1;
+    }
+
+    .tab-panel {
+      display: none;
+      border: 1px solid var(--color-border);
+      border-top: none;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      padding: var(--space-3);
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* ============================================
+       Encrypt/Decrypt Tab
+       ============================================ */
+    .encrypt-mode-toggle {
+      display: flex;
+      margin-bottom: var(--space-4);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .encrypt-mode-btn {
+      flex: 1;
+      font-family: var(--font-mono);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-muted);
+      background: transparent;
+      border: none;
+      padding: var(--space-2) var(--space-3);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .encrypt-mode-btn.active {
+      color: var(--color-text-bright);
+      background: var(--color-surface-raised);
+    }
+
+    .encrypt-mode-btn:hover:not(.active) {
+      color: var(--color-text);
+    }
+
+    .encrypt-textarea {
+      width: 100%;
+      min-height: 6rem;
+      font-family: var(--font-mono);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-bright);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3);
+      resize: vertical;
+      transition: border-color var(--transition-fast);
+    }
+
+    .encrypt-textarea:focus {
+      outline: none;
+      border-color: var(--color-border-focus);
+    }
+
+    .encrypt-textarea:focus-visible {
+      outline: 2px solid var(--color-text-bright);
+      outline-offset: 1px;
+    }
+
+    .encrypt-or {
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: var(--font-size-xs);
+      margin: var(--space-2) 0;
+    }
+
+    .encrypt-file-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-3);
+      border: 1px dashed var(--color-border);
+      border-radius: var(--radius-sm);
+      color: var(--color-text-muted);
+      font-size: var(--font-size-sm);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .encrypt-file-label:hover {
+      color: var(--color-text);
+      border-color: var(--color-text-muted);
+    }
+
+    .encrypt-file-input {
+      display: none;
+    }
+
+    .encrypt-file-name {
+      font-size: var(--font-size-xs);
+      color: var(--color-text);
+      margin-top: var(--space-1);
+      text-align: center;
+      word-break: break-all;
+    }
+
+    .encrypt-actions {
+      display: flex;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+    }
+
+    .encrypt-actions .btn {
+      flex: 1;
+    }
+
+    .encrypt-output {
+      margin-top: var(--space-4);
+    }
+
+    .encrypt-output-label {
+      font-size: var(--font-size-xs);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-1);
+    }
+
+    .encrypt-result {
+      width: 100%;
+      min-height: 4rem;
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      color: var(--color-text);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3);
+      word-break: break-all;
+      resize: none;
+    }
+
+    .encrypt-result:focus {
+      outline: none;
+      border-color: var(--color-border-focus);
+    }
+
+    .encrypt-error {
+      color: var(--color-error);
+      font-size: var(--font-size-sm);
+      margin-top: var(--space-2);
+    }
+
+    .encrypt-success {
+      color: var(--color-success);
+      font-size: var(--font-size-sm);
+      margin-top: var(--space-2);
+    }
+
+    /* ============================================
        Empty State
        ============================================ */
     .output-empty {
@@ -589,6 +799,11 @@
       .copy-btn {
         align-self: flex-end;
       }
+
+      .tab-btn {
+        font-size: var(--font-size-xs);
+        padding: var(--space-2);
+      }
     }
   </style>
 </head>
@@ -700,69 +915,114 @@
           <!-- Output cards (hidden until generation) -->
           <div id="output-cards" style="display: none;">
 
-            <div class="output-card">
-              <div class="output-card-header">
-                <span class="output-card-label">Full</span>
-                <span class="output-card-meta">20 chars &middot; A-Z a-z 0-9 !@#$</span>
+            <div class="tabs-container">
+              <div class="tab-bar" role="tablist">
+                <button type="button" class="tab-btn active" role="tab" id="tab-passwords" aria-controls="panel-passwords" aria-selected="true">Passwords</button>
+                <button type="button" class="tab-btn" role="tab" id="tab-totp" aria-controls="panel-totp" aria-selected="false">TOTP</button>
+                <button type="button" class="tab-btn" role="tab" id="tab-encrypt" aria-controls="panel-encrypt" aria-selected="false">Encrypt</button>
               </div>
-              <div class="output-card-body">
-                <span class="output-password" id="pw-full" tabindex="-1"></span>
-                <button type="button" class="copy-btn" data-target="pw-full" aria-label="Copy full password">[copy]</button>
-              </div>
-            </div>
 
-            <div class="output-card">
-              <div class="output-card-header">
-                <span class="output-card-label">No Symbols</span>
-                <span class="output-card-meta">20 chars &middot; A-Z a-z 0-9</span>
-              </div>
-              <div class="output-card-body">
-                <span class="output-password" id="pw-nosym"></span>
-                <button type="button" class="copy-btn" data-target="pw-nosym" aria-label="Copy no-symbols password">[copy]</button>
-              </div>
-            </div>
-
-            <div class="output-card">
-              <div class="output-card-header">
-                <span class="output-card-label">Alphanumeric</span>
-                <span class="output-card-meta">16 chars &middot; a-z 0-9</span>
-              </div>
-              <div class="output-card-body">
-                <span class="output-password" id="pw-alpha"></span>
-                <button type="button" class="copy-btn" data-target="pw-alpha" aria-label="Copy alphanumeric password">[copy]</button>
-              </div>
-            </div>
-
-            <div class="output-card">
-              <div class="output-card-header">
-                <span class="output-card-label">PIN</span>
-                <span class="output-card-meta">8 digits</span>
-              </div>
-              <div class="output-card-body">
-                <span class="output-password" id="pw-pin"></span>
-                <button type="button" class="copy-btn" data-target="pw-pin" aria-label="Copy PIN">[copy]</button>
-              </div>
-            </div>
-
-            <div class="output-card">
-              <div class="output-card-header">
-                <span class="output-card-label">TOTP</span>
-                <span class="output-card-meta">6 digits &middot; 30s</span>
-              </div>
-              <div class="output-card-body totp-body">
-                <div class="totp-code-row">
-                  <span class="totp-code" id="totp-code"></span>
-                  <span class="totp-countdown" id="totp-countdown"></span>
-                  <button type="button" class="copy-btn" data-target="totp-code" aria-label="Copy TOTP code">[copy]</button>
+              <!-- Passwords Panel -->
+              <div class="tab-panel active" role="tabpanel" id="panel-passwords" aria-labelledby="tab-passwords">
+                <div class="output-card">
+                  <div class="output-card-header">
+                    <span class="output-card-label">Full</span>
+                    <span class="output-card-meta">20 chars &middot; A-Z a-z 0-9 !@#$</span>
+                  </div>
+                  <div class="output-card-body">
+                    <span class="output-password" id="pw-full" tabindex="-1"></span>
+                    <button type="button" class="copy-btn" data-target="pw-full" aria-label="Copy full password">[copy]</button>
+                  </div>
                 </div>
-                <div class="totp-secret-row">
-                  <span class="totp-secret" id="totp-secret"></span>
-                  <button type="button" class="copy-btn" data-target="totp-secret" aria-label="Copy TOTP secret">[copy]</button>
+
+                <div class="output-card">
+                  <div class="output-card-header">
+                    <span class="output-card-label">No Symbols</span>
+                    <span class="output-card-meta">20 chars &middot; A-Z a-z 0-9</span>
+                  </div>
+                  <div class="output-card-body">
+                    <span class="output-password" id="pw-nosym"></span>
+                    <button type="button" class="copy-btn" data-target="pw-nosym" aria-label="Copy no-symbols password">[copy]</button>
+                  </div>
                 </div>
-                <div class="totp-qr-row">
-                  <canvas id="totp-qr" width="200" height="200"></canvas>
+
+                <div class="output-card">
+                  <div class="output-card-header">
+                    <span class="output-card-label">Alphanumeric</span>
+                    <span class="output-card-meta">16 chars &middot; a-z 0-9</span>
+                  </div>
+                  <div class="output-card-body">
+                    <span class="output-password" id="pw-alpha"></span>
+                    <button type="button" class="copy-btn" data-target="pw-alpha" aria-label="Copy alphanumeric password">[copy]</button>
+                  </div>
+                </div>
+
+                <div class="output-card">
+                  <div class="output-card-header">
+                    <span class="output-card-label">PIN</span>
+                    <span class="output-card-meta">8 digits</span>
+                  </div>
+                  <div class="output-card-body">
+                    <span class="output-password" id="pw-pin"></span>
+                    <button type="button" class="copy-btn" data-target="pw-pin" aria-label="Copy PIN">[copy]</button>
+                  </div>
                 </div>
               </div>
+
+              <!-- TOTP Panel -->
+              <div class="tab-panel" role="tabpanel" id="panel-totp" aria-labelledby="tab-totp">
+                <div class="output-card" style="border: none; margin-bottom: 0;">
+                  <div class="output-card-body totp-body">
+                    <div class="totp-code-row">
+                      <span class="totp-code" id="totp-code"></span>
+                      <span class="totp-countdown" id="totp-countdown"></span>
+                      <button type="button" class="copy-btn" data-target="totp-code" aria-label="Copy TOTP code">[copy]</button>
+                    </div>
+                    <div class="totp-secret-row">
+                      <span class="totp-secret" id="totp-secret"></span>
+                      <button type="button" class="copy-btn" data-target="totp-secret" aria-label="Copy TOTP secret">[copy]</button>
+                    </div>
+                    <div class="totp-qr-row">
+                      <canvas id="totp-qr" width="200" height="200"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Encrypt Panel -->
+              <div class="tab-panel" role="tabpanel" id="panel-encrypt" aria-labelledby="tab-encrypt">
+                <div class="encrypt-mode-toggle">
+                  <button type="button" class="encrypt-mode-btn active" id="encrypt-mode-enc">Encrypt</button>
+                  <button type="button" class="encrypt-mode-btn" id="encrypt-mode-dec">Decrypt</button>
+                </div>
+
+                <label for="encrypt-input" class="label" id="encrypt-input-label">plaintext</label>
+                <textarea id="encrypt-input" class="encrypt-textarea" placeholder="Enter text to encrypt..." spellcheck="false"></textarea>
+
+                <div class="encrypt-or">or</div>
+
+                <label class="encrypt-file-label" id="encrypt-file-label-el">
+                  <span id="encrypt-file-label-text">choose file</span>
+                  <input type="file" class="encrypt-file-input" id="encrypt-file">
+                </label>
+                <div class="encrypt-file-name" id="encrypt-file-name"></div>
+
+                <div class="encrypt-actions">
+                  <button type="button" class="btn btn-primary btn-block" id="encrypt-action-btn">Encrypt</button>
+                </div>
+
+                <div class="encrypt-output" id="encrypt-output" style="display: none;">
+                  <div class="encrypt-output-label" id="encrypt-output-label">ciphertext (base64)</div>
+                  <textarea class="encrypt-result" id="encrypt-result" readonly></textarea>
+                  <div style="margin-top: var(--space-2); display: flex; gap: var(--space-2);">
+                    <button type="button" class="copy-btn" id="encrypt-copy-btn" aria-label="Copy result">[copy]</button>
+                    <button type="button" class="btn btn-ghost" id="encrypt-download-btn">[download]</button>
+                  </div>
+                </div>
+
+                <div id="encrypt-status"></div>
+              </div>
+
             </div>
 
           </div>
@@ -966,6 +1226,57 @@
     }
 
     // ============================================
+    // Encryption Engine (AES-256-GCM)
+    // ============================================
+    async function deriveEncryptionKey(masterPassword, domain, username, counter) {
+      var encoder = new TextEncoder();
+      var salt = domain.toLowerCase().trim() + ':' + username.toLowerCase().trim() + ':' + counter.toString() + ':encrypt';
+      var keyMaterial = await crypto.subtle.importKey(
+        'raw', encoder.encode(masterPassword), 'PBKDF2', false, ['deriveKey']
+      );
+      return crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: encoder.encode(salt), iterations: ITERATIONS, hash: 'SHA-256' },
+        keyMaterial,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['encrypt', 'decrypt']
+      );
+    }
+
+    async function encryptData(key, data) {
+      var iv = crypto.getRandomValues(new Uint8Array(12));
+      var ciphertext = await crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, key, data);
+      var result = new Uint8Array(12 + ciphertext.byteLength);
+      result.set(iv, 0);
+      result.set(new Uint8Array(ciphertext), 12);
+      return result;
+    }
+
+    async function decryptData(key, combined) {
+      var iv = combined.slice(0, 12);
+      var ciphertext = combined.slice(12);
+      return crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, key, ciphertext);
+    }
+
+    function arrayBufferToBase64(buffer) {
+      var bytes = new Uint8Array(buffer);
+      var binary = '';
+      for (var i = 0; i < bytes.length; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      return btoa(binary);
+    }
+
+    function base64ToArrayBuffer(base64) {
+      var binary = atob(base64);
+      var bytes = new Uint8Array(binary.length);
+      for (var i = 0; i < binary.length; i++) {
+        bytes[i] = binary.charCodeAt(i);
+      }
+      return bytes;
+    }
+
+    // ============================================
     // Input Normalization
     // ============================================
     function normalizeDomain(raw) {
@@ -1053,6 +1364,9 @@
       var totpSecret = null;
       var totpTimer = null;
 
+      // Encryption state
+      var encryptionKey = null;
+
       function stopTOTP() {
         if (totpTimer) {
           clearInterval(totpTimer);
@@ -1103,7 +1417,8 @@
         try {
           var results = await Promise.all([
             generatePasswords(master, normalizedDomain, normalizedUsername, counter),
-            deriveTOTPSecret(master, normalizedDomain, normalizedUsername, counter)
+            deriveTOTPSecret(master, normalizedDomain, normalizedUsername, counter),
+            deriveEncryptionKey(master, normalizedDomain, normalizedUsername, counter)
           ]);
           var passwords = results[0];
           pwFull.textContent = passwords.full;
@@ -1120,6 +1435,13 @@
 
           var otpauth = 'otpauth://totp/StatelessPass:' + encodeURIComponent(normalizedUsername || normalizedDomain) + '?secret=' + b32 + '&issuer=StatelessPass&algorithm=SHA1&digits=6&period=30';
           renderQR('totp-qr', otpauth);
+
+          // Encryption key
+          encryptionKey = results[2];
+
+          // Reset to Passwords tab
+          switchTab('tab-passwords');
+          resetEncryptUI();
 
           outputEmpty.style.display = 'none';
           outputCards.style.display = 'block';
@@ -1149,7 +1471,7 @@
             handleGenerate();
           }
         });
-        input.addEventListener('input', function() { hideExportBtn(); stopTOTP(); });
+        input.addEventListener('input', function() { hideExportBtn(); stopTOTP(); encryptionKey = null; });
       });
 
       // Master password visibility toggle
@@ -1188,6 +1510,212 @@
         a.download = lastExport.domain + '.json';
         a.click();
         URL.revokeObjectURL(url);
+      });
+
+      // Auto-clean inputs on blur
+      domainInput.addEventListener('blur', function() {
+        var cleaned = normalizeDomain(domainInput.value);
+        if (cleaned !== domainInput.value) domainInput.value = cleaned;
+      });
+      usernameInput.addEventListener('blur', function() {
+        var raw = usernameInput.value;
+        var cleaned = raw.toLowerCase().trim();
+        if (cleaned !== raw) usernameInput.value = cleaned;
+      });
+
+      // Tab switching
+      var tabBtns = document.querySelectorAll('.tab-btn');
+      var tabPanels = document.querySelectorAll('.tab-panel');
+
+      function switchTab(tabId) {
+        tabBtns.forEach(function(b) {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        tabPanels.forEach(function(p) { p.classList.remove('active'); });
+        var btn = document.getElementById(tabId);
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        document.getElementById(btn.getAttribute('aria-controls')).classList.add('active');
+      }
+
+      tabBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          switchTab(btn.id);
+        });
+      });
+
+      // Encrypt/Decrypt UI
+      var encModeEncBtn = document.getElementById('encrypt-mode-enc');
+      var encModeDecBtn = document.getElementById('encrypt-mode-dec');
+      var encInput = document.getElementById('encrypt-input');
+      var encInputLabel = document.getElementById('encrypt-input-label');
+      var encFileInput = document.getElementById('encrypt-file');
+      var encFileLabelText = document.getElementById('encrypt-file-label-text');
+      var encFileName = document.getElementById('encrypt-file-name');
+      var encActionBtn = document.getElementById('encrypt-action-btn');
+      var encOutput = document.getElementById('encrypt-output');
+      var encOutputLabel = document.getElementById('encrypt-output-label');
+      var encResult = document.getElementById('encrypt-result');
+      var encDownloadBtn = document.getElementById('encrypt-download-btn');
+      var encCopyBtn = document.getElementById('encrypt-copy-btn');
+      var encStatus = document.getElementById('encrypt-status');
+
+      var encryptMode = 'encrypt';
+      var encSelectedFile = null;
+      var encResultBytes = null;
+
+      function resetEncryptUI() {
+        encOutput.style.display = 'none';
+        encStatus.textContent = '';
+        encInput.value = '';
+        encFileInput.value = '';
+        encFileName.textContent = '';
+        encSelectedFile = null;
+        encResultBytes = null;
+      }
+
+      function setEncryptMode(mode) {
+        encryptMode = mode;
+        resetEncryptUI();
+        if (mode === 'encrypt') {
+          encModeEncBtn.classList.add('active');
+          encModeDecBtn.classList.remove('active');
+          encInputLabel.textContent = 'plaintext';
+          encInput.placeholder = 'Enter text to encrypt...';
+          encActionBtn.textContent = 'Encrypt';
+          encFileLabelText.textContent = 'choose file';
+        } else {
+          encModeDecBtn.classList.add('active');
+          encModeEncBtn.classList.remove('active');
+          encInputLabel.textContent = 'ciphertext (base64)';
+          encInput.placeholder = 'Paste base64 ciphertext...';
+          encActionBtn.textContent = 'Decrypt';
+          encFileLabelText.textContent = 'choose .enc file';
+        }
+      }
+
+      encModeEncBtn.addEventListener('click', function() { setEncryptMode('encrypt'); });
+      encModeDecBtn.addEventListener('click', function() { setEncryptMode('decrypt'); });
+
+      encFileInput.addEventListener('change', function() {
+        if (encFileInput.files.length > 0) {
+          encSelectedFile = encFileInput.files[0];
+          encFileName.textContent = encSelectedFile.name + ' (' + formatSize(encSelectedFile.size) + ')';
+        } else {
+          encSelectedFile = null;
+          encFileName.textContent = '';
+        }
+      });
+
+      function formatSize(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+      }
+
+      function showEncStatus(msg, isError) {
+        encStatus.textContent = msg;
+        encStatus.className = isError ? 'encrypt-error' : 'encrypt-success';
+      }
+
+      encActionBtn.addEventListener('click', async function() {
+        if (!encryptionKey) {
+          showEncStatus('generate passwords first to derive encryption key', true);
+          return;
+        }
+
+        encOutput.style.display = 'none';
+        encStatus.textContent = '';
+        encResultBytes = null;
+
+        try {
+          if (encryptMode === 'encrypt') {
+            if (encSelectedFile) {
+              var fileBuffer = await encSelectedFile.arrayBuffer();
+              var encrypted = await encryptData(encryptionKey, fileBuffer);
+              encResultBytes = encrypted;
+              encResult.value = '[file encrypted: ' + formatSize(encrypted.byteLength) + ']';
+              encOutputLabel.textContent = 'encrypted file';
+              encOutput.style.display = 'block';
+              encCopyBtn.style.display = 'none';
+              encDownloadBtn.style.display = '';
+              showEncStatus('file encrypted successfully', false);
+            } else if (encInput.value.trim()) {
+              var encrypted = await encryptData(encryptionKey, new TextEncoder().encode(encInput.value));
+              var b64 = arrayBufferToBase64(encrypted);
+              encResult.value = b64;
+              encOutputLabel.textContent = 'ciphertext (base64)';
+              encOutput.style.display = 'block';
+              encCopyBtn.style.display = '';
+              encDownloadBtn.style.display = '';
+              encResultBytes = encrypted;
+              showEncStatus('text encrypted successfully', false);
+            } else {
+              showEncStatus('enter text or choose a file to encrypt', true);
+            }
+          } else {
+            if (encSelectedFile) {
+              var fileBuffer = await encSelectedFile.arrayBuffer();
+              var decrypted = await decryptData(encryptionKey, new Uint8Array(fileBuffer));
+              encResultBytes = new Uint8Array(decrypted);
+              encResult.value = '[file decrypted: ' + formatSize(decrypted.byteLength) + ']';
+              encOutputLabel.textContent = 'decrypted file';
+              encOutput.style.display = 'block';
+              encCopyBtn.style.display = 'none';
+              encDownloadBtn.style.display = '';
+              showEncStatus('file decrypted successfully', false);
+            } else if (encInput.value.trim()) {
+              var combined = base64ToArrayBuffer(encInput.value.trim());
+              var plainBuffer = await decryptData(encryptionKey, combined);
+              var plaintext = new TextDecoder().decode(plainBuffer);
+              encResult.value = plaintext;
+              encOutputLabel.textContent = 'plaintext';
+              encOutput.style.display = 'block';
+              encCopyBtn.style.display = '';
+              encDownloadBtn.style.display = '';
+              encResultBytes = new Uint8Array(plainBuffer);
+              showEncStatus('text decrypted successfully', false);
+            } else {
+              showEncStatus('paste ciphertext or choose a file to decrypt', true);
+            }
+          }
+        } catch (e) {
+          var msg = encryptMode === 'decrypt' ? 'decryption failed (wrong key or corrupted data)' : 'encryption failed: ' + e.message;
+          showEncStatus(msg, true);
+        }
+      });
+
+      // Download encrypted/decrypted result
+      encDownloadBtn.addEventListener('click', function() {
+        if (!encResultBytes) return;
+        var blob, filename;
+        if (encryptMode === 'encrypt') {
+          blob = new Blob([encResultBytes], { type: 'application/octet-stream' });
+          filename = (encSelectedFile ? encSelectedFile.name : 'encrypted') + '.enc';
+        } else {
+          var origName = encSelectedFile ? encSelectedFile.name.replace(/\.enc$/, '') : 'decrypted';
+          blob = new Blob([encResultBytes], { type: 'application/octet-stream' });
+          filename = origName;
+        }
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      // Copy button for encrypt result
+      encCopyBtn.addEventListener('click', function() {
+        if (!encResult.value) return;
+        copyToClipboard(encResult.value);
+        encCopyBtn.textContent = '[done]';
+        encCopyBtn.classList.add('copied');
+        setTimeout(function() {
+          encCopyBtn.textContent = '[copy]';
+          encCopyBtn.classList.remove('copied');
+        }, 2000);
       });
 
     })();
