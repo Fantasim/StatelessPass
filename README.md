@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="image.png" width="700" alt="StatelessPass"/>
+  <img src="logo.svg" width="700" alt="StatelessPass"/>
 </p>
 
 <h1 align="center">StatelessPass</h1>
